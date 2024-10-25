@@ -12,7 +12,7 @@ let num2 = Number(readline.question());
 
 // Ask user for operand
 console.log(
-  'Which operation would you like to perform?' + 
+  'Which operation would you like to perform?' +
   '\n1) Add 2) Subtract 3) Multiply 4) Divide'
 );
 let operation = readline.question();
