@@ -1,14 +1,31 @@
-function shortLongShort (str1, str2) {
-  let str1Length = str1.length;
-  let str2Length = str2.length;
+let readlineSync = require("readline-sync");
 
-  if (str1Length > str2Length) {
-    return str2 + str1 + str2;
-  } else {
-    return str1 + str2 + str1;
+function findSum (int) {
+  let sum = 0;
+  for (let num = int; num > 0; num--) {
+    sum += num;
   }
+  return sum;
 }
 
-console.log(shortLongShort('abc', 'defgh'));
-console.log(shortLongShort('abcde', 'fgh'));
-console.log(shortLongShort('', 'xyz'));
+function findProduct (int) {
+  let product = 1;
+  for (let num = int; num > 0; num--) {
+    product *= num;
+  }
+  return product;
+}
+
+console.log('Please enter an integer greater than 0:');
+let chosenInteger = Number(readlineSync.prompt());
+
+console.log('Enter "s" to compute the sum, or "p" to compute the product.');
+let sumOrProduct = readlineSync.prompt().toLowerCase();
+
+if (sumOrProduct === 's') {
+  let answer = findSum(chosenInteger);
+  console.log(`The sum of the integers between 1 and ${chosenInteger} is ${answer}`);
+} else {
+  let answer = findProduct(chosenInteger);
+  console.log(`The sum product the integers between 1 and ${chosenInteger} is ${answer}`);
+}

@@ -1,24 +1,16 @@
-function utf16Value (str) {
-  let utf16Sum = 0;
+function multisum (num) {
+  let total = 0;
 
-  for (let index = 0; index < str.length; index++) {
-    utf16Sum += str.charCodeAt(index);
+  for (let count = 1; count <= num; count++) {
+    if (((count / 3) % 1 === 0) || ((count / 5) % 1 === 0)) {
+      total += count;
+    }
   }
 
-  return utf16Sum;
+  return total;
 }
 
-
-
-console.log(utf16Value('Four score'));         // 984
-console.log(utf16Value('Launch School'));      // 1251
-console.log(utf16Value('a'));                  // 97
-console.log(utf16Value(''));                   // 0
-
-// The next three lines demonstrate that the code
-// works with non-ASCII characters from the UTF-16
-// character set.
-const OMEGA = "\u03A9";             // UTF-16 character 'Ω' (omega)
-
-console.log(utf16Value(OMEGA));                  // 937
-console.log(utf16Value(OMEGA + OMEGA + OMEGA));  // 2811
+console.log(multisum(3));       // 3
+console.log(multisum(5));       // 8
+console.log(multisum(10));      // 33
+console.log(multisum(1000));    // 234168

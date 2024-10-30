@@ -2,13 +2,10 @@ function isLeapYear (year) {
   let divisibleBy4 = ((year / 4) % 1 === 0);
   let divisibleBy100 = ((year / 100) % 1 === 0);
   let divisibleBy400 = ((year / 400) % 1 === 0);
+
   let yearIsLeap = false;
 
-  if (year < 1752) {
-    if (divisibleBy4) {
-      yearIsLeap = true;
-    }
-  } else if (divisibleBy4) {
+  if (divisibleBy4) {
     yearIsLeap = true;
     if (divisibleBy100) {
       yearIsLeap = false;
@@ -17,6 +14,7 @@ function isLeapYear (year) {
       }
     }
   }
+
   return yearIsLeap;
 }
 
@@ -29,7 +27,7 @@ console.log(isLeapYear(240001));    // false
 console.log(isLeapYear(2000));      // true
 console.log(isLeapYear(1900));      // false
 console.log(isLeapYear(1752));      // true
-console.log(isLeapYear(1700));      // true
+console.log(isLeapYear(1700));      // false
 console.log(isLeapYear(1));         // false
-console.log(isLeapYear(100));       // true
+console.log(isLeapYear(100));       // false
 console.log(isLeapYear(400));       // true

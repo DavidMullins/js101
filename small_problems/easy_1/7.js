@@ -1,33 +1,14 @@
-function isLeapYear (year) {
-  let divisibleBy4 = ((year / 4) % 1 === 0);
-  let divisibleBy100 = ((year / 100) % 1 === 0);
-  let divisibleBy400 = ((year / 400) % 1 === 0);
+function shortLongShort (str1, str2) {
+  let str1Length = str1.length;
+  let str2Length = str2.length;
 
-  let yearIsLeap = false;
-
-  if (divisibleBy4) {
-    yearIsLeap = true;
-    if (divisibleBy100) {
-      yearIsLeap = false;
-      if (divisibleBy400) {
-        yearIsLeap = true;
-      }
-    }
+  if (str1Length > str2Length) {
+    return str2 + str1 + str2;
+  } else {
+    return str1 + str2 + str1;
   }
-
-  return yearIsLeap;
 }
 
-console.log(isLeapYear(2016));      // true
-console.log(isLeapYear(2015));      // false
-console.log(isLeapYear(2100));      // false
-console.log(isLeapYear(2400));      // true
-console.log(isLeapYear(240000));    // true
-console.log(isLeapYear(240001));    // false
-console.log(isLeapYear(2000));      // true
-console.log(isLeapYear(1900));      // false
-console.log(isLeapYear(1752));      // true
-console.log(isLeapYear(1700));      // false
-console.log(isLeapYear(1));         // false
-console.log(isLeapYear(100));       // false
-console.log(isLeapYear(400));       // true
+console.log(shortLongShort('abc', 'defgh'));
+console.log(shortLongShort('abcde', 'fgh'));
+console.log(shortLongShort('', 'xyz'));
